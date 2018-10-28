@@ -1,0 +1,18 @@
+spring:
+  application:
+    name: sandpay-config-client
+  cloud: 
+    config:   
+      uri: http://localhost:8888/ #配置服务中心的地址
+      label: master #远程仓库的分支
+      profile: dev #开发环境配置文件
+      fail-fast: true # true: 如果访问配置中心失败，则停止启动服务    
+      retry: # 配置重试，默认是重试6次，最初是延迟1s再次重试，如果再失败，则延迟1s*mult累积乘积时间
+        initial-interval: 2000   
+        max-attempts: 6  # 最多重试次数        
+        max-interval: 4000 # 最大重试间隔     
+        multiplier: 1.2 # 每次重试时间是之前的倍数
+    
+server: 
+  port: 8881
+

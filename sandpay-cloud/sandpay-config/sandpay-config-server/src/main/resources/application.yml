@@ -1,0 +1,17 @@
+spring:
+  application:
+    name: sandpay-config-server
+  cloud: 
+    config:
+      server: 
+        git: 
+          uri: https://github.com/forezp/SpringcloudConfig/ #配置git仓库地址
+          searchPaths: respo #配置仓库路径
+          username:  #访问git仓库的用户名
+          password:  #访问git仓库的用户密码
+          force-pull: true #强制更新配置
+      label: master #远程仓库的分支          
+    
+server: 
+  port: 8888
+
